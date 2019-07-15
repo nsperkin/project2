@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="mySidenav" class="sidenav bg-primary">
+	<h3 class="pl-3">Channels:</h3> 
+	<button class="btn btn-secondary btn-small">+</button><hr>
+	<a href="#">About</a>
+	<a href="#">Services</a>
+	<a href="#">Clients</a>
+	<a href="#">Contact</a>
+</div>
+
+<div id="main">
+	<nav class="main navbar navbar-light bg-primary">
+		<span id="expandbutton">&#9776;</span>
+		<a class="navbar-brand mx-auto">Flack</a> 
+	</nav> <br>
+	<h2>Welcome!</h2>
+	<p>You do not currently have a channel selected. Please select a channel or create a new one!</p>
+</div>
+
+{% endblock %}	

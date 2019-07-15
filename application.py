@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template, session, redirect, url_for
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -10,4 +10,11 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def index():
-    return "Project 2: TODO"
+	if 'displayname' in session:
+		return redirect(url_for('home'))
+	else:
+		return render_template('index.html')
+
+@app.route("/home")
+def home():
+	return render_template('home.html')

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+	<br>
+	<h1>Welcome to Flack!</h1>
+	<p>Please enter a display name to get started.</p>
+	<form action="{{url_for('home')}}">
+		<input type="text" name="displayname" placeholder="Display Name" required="required" autofocus>
+		<button class="btn btn-primary">Enter</button>
+	</form>
+</div>
+{% endblock %}	
