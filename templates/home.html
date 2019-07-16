@@ -2,21 +2,31 @@
 
 {% block body %}
 <div id="mySidenav" class="sidenav bg-primary">
-	<h3 class="pl-3">Channels:</h3> 
-	<button class="btn btn-secondary btn-small">+</button><hr>
-	<a href="#">About</a>
-	<a href="#">Services</a>
-	<a href="#">Clients</a>
-	<a href="#">Contact</a>
+	<h3 class="pl-3">Channels: <span id="add">+</span></h3>
+	<form id="newChannel" action="{{url_for('newChannel')}}" method="post">
+		<input id="channelName" type="text" name="channel" required="required" autofocus placeholder="Channel Name">
+		<button class="btn btn-primary">Enter</button>
+	</form>
+	{% for channel in chan %}
+		<a href="{{ url_for('channel', name=channel) }}">{{channel}}</a>
+	{% endfor %}
+	<a id="logout" href="{{url_for('logout')}}">Change Display Name</a>
 </div>
 
 <div id="main">
-	<nav class="main navbar navbar-light bg-primary">
+	<nav id="topnav" class="navbar navbar-light bg-primary">
 		<span id="expandbutton">&#9776;</span>
 		<a class="navbar-brand mx-auto">Flack</a> 
 	</nav> <br>
-	<h2>Welcome!</h2>
-	<p>You do not currently have a channel selected. Please select a channel or create a new one!</p>
+	<div id="content">
+		<h2>{{message}}</h2>
+	</div>
+	<div id="messages">
+	</div>
+	<form id="message">
+		<input type="text" id="mes" name="message" autofocus placeholder="Type a message...">
+		<button id="enter">></button>
+	</form>
 </div>
 
 {% endblock %}	

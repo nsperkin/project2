@@ -5,7 +5,7 @@
 	<br>
 	<h1>Welcome to Flack!</h1>
 	<p>Please enter a display name to get started.</p>
-	<form action="{{url_for('home')}}">
+	<form action="{{url_for('login')}}" method="post">
 		<input type="text" name="displayname" placeholder="Display Name" required="required" autofocus>
 		<button class="btn btn-primary">Enter</button>
 	</form>
